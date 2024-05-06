@@ -52,6 +52,7 @@ echo "Enter password for user"
 passwd patrick
 usermod -aG wheel,floppy,audio,video,cdrom,optical,network,kvm,xbuilder patrick
 chsh -s /bin/bash root
+xbps-install -S vim
 EDITOR=vim visudo
 
 # Repos
@@ -67,8 +68,6 @@ echo "UUID=$ROOT_UUID / ext4 defaults 0 1\nUUID=$SWAP_UUID none swap defaults 0 
 # Grub
 xbps-install grub-x86_64-efi
 grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id="Void"
-
-
 
 # Finalisation
 xbps-reconfigure -fa
